@@ -1,12 +1,15 @@
 # Update from Day 60 - Handle Post Requests with Flask #
 
 # index.html---form---action, method and name #  ⬇️ 
- <form action="{{url_for(receive_data)}}" method="post">
+ <form action="{{url_for('contact_data')}}" method="post">
      <label>Name:</label> <input name="username">
      <br><br>
-     <label>Password:</label> <input type="password" placeholder="enter please" name="password">
-     <br>
-     <button type="submit" value="Submit">OK</button>
+     <label>Email:</label> <input type="text" name="email">
+     <br><br>
+     <label>Message:</label>
+     <textarea placeholder="Enter your message here..." name="message"></textarea>
+     <br><br>                          
+     <button type="submit" value="Submit">Send</button>
  </form>
 
 
@@ -17,7 +20,6 @@ def contact_data():
     if request.method == "POST":
         name_data = request.form['username']
         email_data = request.form['email']
-        phone_data = request.form['phone']
         message_data = request.form['message']
         return render_template('contact.html', message="Successfully sent your message.")
     elif request.method == "GET":
