@@ -12,8 +12,22 @@
 
 # main.py---request, methodS #  ⬇️ 
 from flask import Flask, render_template, request
-@app.route('/login', methods=["POST"])
-def receive_data():
-    username_data = request.form['username']
-    password_data = request.form['password']
-    return render_template('login.html', username=username_data, password=password_data)
+@app.route('/contact', methods=["POST", "GET"])
+def contact_data():
+    if request.method == "POST":
+        name_data = request.form['username']
+        email_data = request.form['email']
+        phone_data = request.form['phone']
+        message_data = request.form['message']
+        return render_template('contact.html', message="Successfully sent your message.")
+    elif request.method == "GET":
+        return render_template('contact.html')
+     
+#contact.html # ⬇️
+   <div class="page-heading">
+       {% if request.method == "GET": %}
+       <h1>Contact Me</h1>
+       {% elif request.method == "POST": %}
+       <h1>{{message}}</h1>
+       {% endif %}
+   </div>
