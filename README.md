@@ -13,5 +13,7 @@ To build a personal blog using Python, Flask and Jinja.
 
 # Updates from Day 60 - Handle POST Request with Flask
 6) 在HTML文件的Form中加入action和method。 E.g. form action="{{ url_for('function') }}" method="post" ... /form
-7) To catch the Post request in the server, we first need to give each input in the form a name attribute. E.g. input name="username"
-8) Then cretae a decorator in the main.py that will trigger a method wehn it receives a POST request. Note that the methods is a list and its name is in plural form. E.g. @app.route('/contact', method**s**=['POST', 'GET'])
+7) To catch the Post request in the server, we first need to give each input in the form a name attribute. 
+   E.g. html: input name="username"
+        server: name_data = request.form['username']
+8) Then create a decorator in the main.py that will trigger a method wehn it receives a POST request. Note that the methods is a list and its name is in plural form. E.g. @app.route('/contact', method**s**=['POST', 'GET'])
