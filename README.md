@@ -17,3 +17,8 @@ To build a personal blog using Python, Flask and Jinja.
    E.g. html: input name="username"
         server: name_data = request.form['username']
 8) Then create a decorator in the main.py that will trigger a method wehn it receives a POST request. Note that the methods is a list and its name is in plural form. E.g. @app.route('/contact', method**s**=['POST', 'GET'])
+
+
+# Updates from Day 54 - Regarding Flask Request
+9) in the anchor tag: href="{{url_for('delete', id=movie.id)}}" creates a url http://localhost/delete?id={movie.id}. That is to say, the second argument in the url_for(args) puts in a paramater while the first argument creates an endpoint.
+10) After Step 9), when we get back to the server, how do we get hold of the 'id' paramater? Use movie_id = request.args.get('id'), i.e. get the name of the paramater. Then search by id in the database. Note: request.args only ever contains values included in the request query string, the optional part of a URL after the ? question mark. Since it’s part of the URL, it is independent from the POST request body.
