@@ -1,5 +1,5 @@
 # Blog Project
-To build a personal blog using Python, Flask, Request and Jinja.
+To build a personal blog using Html Form, Python, Flask, Request and Jinja.
 
 # What I learned:
 1) Sending over arguments from Python file to HTML file. In the HTML file, the variable shall be wrapped with {{ }}
